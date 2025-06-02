@@ -10,16 +10,15 @@ jobs:
     
     permissions:
       contents: read
-      pull-requests: read
+      pull-requests: write
     
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
         
       - name: Run PR Data Action
-        uses: j-rivero/pr-data-action@main
+        uses: j-rivero/pr-data-action@github_bot2
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
           token: ${{ secrets.GITHUB_TOKEN }}
           changelog-dir: '.changelog'
       - name: Show validation results
