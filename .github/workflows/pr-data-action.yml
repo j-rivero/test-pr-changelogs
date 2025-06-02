@@ -19,7 +19,6 @@ jobs:
       - name: Run PR Data Action
         uses: j-rivero/pr-data-action@main
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
           token: ${{ secrets.GITHUB_TOKEN }}
           changelog-dir: '.changelog'
       - name: Show validation results
