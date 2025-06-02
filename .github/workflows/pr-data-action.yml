@@ -2,7 +2,7 @@ name: PR Data Action
 
 on:
   pull_request:
-    types: [opened, synchronize, reopened, edited]
+    types: [opened, synchronize, reopened]
 
 jobs:
   run-pr-data-action:
@@ -10,7 +10,7 @@ jobs:
     
     permissions:
       contents: read
-      pull-requests: read
+      pull-requests: write
     
     steps:
       - name: Checkout repository
