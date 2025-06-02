@@ -1,0 +1,30 @@
+name: PR Data Action
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, edited]
+
+jobs:
+  run-pr-data-action:
+    runs-on: ubuntu-latest
+    
+    permissions:
+      contents: read
+      pull-requests: read
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        
+      - name: Run PR Data Action
+        uses: j-rivero/pr-data-action@main
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+          changelog-dir: '.changelog'
+      - name: Show validation results
+        if: always()
+        run: |
+          echo "Changelog found: ${{ steps.validate.outputs.changelog-found }}"
+          echo "Version bump found: ${{ steps.validate.outputs.version-bump-found }}"
+          echo "Version bump type: ${{ steps.validate.outputs.version-bump-type }}"
