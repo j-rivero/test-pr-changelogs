@@ -17,7 +17,7 @@ jobs:
         uses: actions/checkout@v4
         
       - name: Run PR Data Action
-        uses: j-rivero/pr-data-action@github_bot
+        uses: j-rivero/pr-data-action@github_bot2
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           changelog-dir: '.changelog'
