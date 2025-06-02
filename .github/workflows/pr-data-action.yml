@@ -2,7 +2,7 @@ name: PR Data Action
 
 on:
   pull_request:
-    types: [opened, synchronize, reopened, edited]
+    types: [opened, synchronize, reopened]
 
 jobs:
   run-pr-data-action:
